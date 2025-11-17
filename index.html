@@ -3,16 +3,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Programming Quotes</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 <body>
-    Hello world!
+    <h1>Programming Quote:</h1>
+    <blockquote id="quote" class="blockquote"></blockquote>
+
+    <button class="btn btn-primary" onclick="refreshQuote()">New Quote</button>
 
     <script>
-        fetch("https://quote.cs260.click/")
-            .then(res => res.json())
-            .then(quote => {
-                console.log(quote)
-            })
+        function refreshQuote() {
+            fetch("https://quote.cs260.click/")
+                .then(res => res.json())
+                .then(quote => {
+                    console.log(quote)
+                    document.getElementById("quote").innerText = quote.text + " — " + quote.author
+                })
+        }
     </script>
 </body>
 </html>
