@@ -10,6 +10,7 @@
     <div class="container mt-5">
         <h1>Programming Quote:</h1>
         <blockquote id="quote" class="blockquote"></blockquote>
+        <strong id="author" class="text-center"></strong>
 
         <button class="btn btn-primary" onclick="refreshQuote()">New Quote</button>
     </div>
@@ -21,7 +22,8 @@
                 .then(res => {
                     console.log(res)
                     const { quote, author } = res
-                    document.getElementById("quote").innerText = quote + " — " + author
+                    document.getElementById("quote").innerText = quote
+                    document.getElementById("author").innerText = "— " + author
                 })
         }
 
