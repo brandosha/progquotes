@@ -13,7 +13,7 @@
 
         <button class="btn btn-primary" onclick="refreshQuote()">New Quote</button>
     </div>
-    
+
     <script>
         function refreshQuote() {
             fetch("https://quote.cs260.click/")
@@ -24,6 +24,8 @@
                     document.getElementById("quote").innerText = quote + " — " + author
                 })
         }
+
+        refreshQuote()
     </script>
 </body>
 </html>
