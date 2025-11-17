@@ -7,18 +7,21 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 <body>
-    <h1>Programming Quote:</h1>
-    <blockquote id="quote" class="blockquote"></blockquote>
+    <div class="container mt-5">
+        <h1>Programming Quote:</h1>
+        <blockquote id="quote" class="blockquote"></blockquote>
 
-    <button class="btn btn-primary" onclick="refreshQuote()">New Quote</button>
-
+        <button class="btn btn-primary" onclick="refreshQuote()">New Quote</button>
+    </div>
+    
     <script>
         function refreshQuote() {
             fetch("https://quote.cs260.click/")
                 .then(res => res.json())
-                .then(quote => {
-                    console.log(quote)
-                    document.getElementById("quote").innerText = quote.text + " — " + quote.author
+                .then(res => {
+                    console.log(res)
+                    const { quote, author } = res
+                    document.getElementById("quote").innerText = quote + " — " + author
                 })
         }
     </script>
